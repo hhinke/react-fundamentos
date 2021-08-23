@@ -1,12 +1,15 @@
-import React from 'react';
+import React,  { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 
+import { ThemeContext } from './ThemeContext';
+
 function Header(props) {
+  const { onToggleTheme } = useContext(ThemeContext);
   return (
     <>
       <h1>{props.title}</h1>
-      <Button theme={props.theme} onClick={props.onTooggleTheme}>
+      <Button onClick={onToggleTheme}>
         Mudar Tema
       </Button>
       {props.children}
@@ -15,8 +18,6 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  theme: PropTypes.string.isRequired,
-  onTooggleTheme: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   children: PropTypes.node
 }
