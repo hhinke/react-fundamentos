@@ -4,6 +4,8 @@ import Post from './Post';
 import Header from './Header';
 import { ThemeProvider } from './ThemeContext';
 
+import styles from './App.css';
+
 function App() {
   const [posts, setPosts] = useState([
       { id: Math.random(), likes: 10, title: "Título da Notícia 1", subtitle: "Subtítulo da Notícia 1", read: false },
@@ -37,7 +39,7 @@ function App() {
       <Header 
         title="JStack's Blog"         
       >
-        <h2>Posts da Semana</h2>
+        <h2 className={styles.title}>Posts da Semana</h2>
         <button onClick={handleRefresh}>Atualizar</button>
       </Header>
 
