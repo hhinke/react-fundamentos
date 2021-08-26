@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 import Post from '../Post';
 import Header from '../Header';
-import { ThemeProvider } from '../../context/ThemeContext';
 
-import styles from './App.scss';
+import { Title } from './styles';
+
+import { ThemeProvider } from '../../context/ThemeContext';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -12,8 +13,6 @@ function App() {
       { id: Math.random(), likes: 3, title: "Título da Notícia 2", subtitle: "Subtítulo da Notícia 2", read: true, removed: false },
       { id: Math.random(), likes: 1, title: "Título da Notícia 3", subtitle: "Subtítulo da Notícia 3", read: false, removed: false },
   ]);
-
-  
 
   function handleRefresh() {
     setPosts((prevState) => [
@@ -45,7 +44,9 @@ function App() {
       <Header 
         title="JStack's Blog"         
       >
-        <h2 className={styles.title}>Posts da Semana</h2>
+        <Title as="h2">
+          Posts da Semana
+        </Title>
         <button onClick={handleRefresh}>Atualizar</button>
       </Header>
 
